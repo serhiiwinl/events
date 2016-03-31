@@ -1,0 +1,142 @@
+{
+	"archiveVersion" = "1";
+	"classes" =
+		{
+		};
+	"objectVersion" = "46";
+	"objects" =
+		{
+			"100000000000000000000002" =
+				{
+					"isa" = "PBXGroup";
+					"children" =
+						("2381CA95CB2841B3B429B258", "30D478946AF04D03A668256A");
+					"sourceTree" = "<group>";
+				};
+			"100000000000000000000006" =
+				{
+					"isa" = "PBXNativeTarget";
+					"buildPhases" =
+						("100000000000000000000007");
+					"buildRules" =
+						();
+					"dependencies" =
+						();
+					"name" = "test";
+					"productName" = "test";
+					"productType" = "com.apple.product-type.application";
+				};
+			"100000000000000000000001" =
+				{
+					"isa" = "PBXProject";
+					"attributes" =
+						{
+							"LastUpgradeCheck" = "0620";
+						};
+					"buildConfigurationList" = "100000000000000000000003";
+					"compatibilityVersion" = "Xcode 3.2";
+					"developmentRegion" = "English";
+					"hasScannedForEncodings" = "0";
+					"knownRegions" =
+						("en");
+					"mainGroup" = "100000000000000000000002";
+					"projectDirPath" = "";
+					"projectRoot" = "";
+					"targets" =
+						("100000000000000000000006");
+				};
+			"100000000000000000000007" =
+				{
+					"isa" = "PBXSourcesBuildPhase";
+					"buildActionMask" = "2147483647";
+					"files" =
+						();
+					"runOnlyForDeploymentPostprocessing" = "0";
+				};
+			"100000000000000000000004" =
+				{
+					"isa" = "XCBuildConfiguration";
+					"buildSettings" =
+						{
+							"INFOPLIST_FILE" = "/Users/sliubetskyi/projects/roboVM/events/ios/Info.plist.xml";
+							"SDKROOT" = "iphoneos";
+							"TARGETED_DEVICE_FAMILY" = "1,2";
+							"GCC_PRECOMPILE_PREFIX_HEADER" = "YES";
+							"GCC_PREFIX_HEADER" = "/Users/sliubetskyi/projects/roboVM/events/ios/robovm-build/xcode/.ib/Prefix.pch";
+						};
+					"name" = "Debug";
+				};
+			"100000000000000000000005" =
+				{
+					"isa" = "XCBuildConfiguration";
+					"buildSettings" =
+						{
+							"INFOPLIST_FILE" = "/Users/sliubetskyi/projects/roboVM/events/ios/Info.plist.xml";
+							"SDKROOT" = "iphoneos";
+							"TARGETED_DEVICE_FAMILY" = "1,2";
+							"GCC_PRECOMPILE_PREFIX_HEADER" = "YES";
+							"GCC_PREFIX_HEADER" = "/Users/sliubetskyi/projects/roboVM/events/ios/robovm-build/xcode/.ib/Prefix.pch";
+						};
+					"name" = "Release";
+				};
+			"100000000000000000000003" =
+				{
+					"isa" = "XCConfigurationList";
+					"buildConfigurations" =
+						("100000000000000000000004", "100000000000000000000005");
+					"defaultConfigurationIsVisible" = "0";
+					"defaultConfigurationName" = "Release";
+				};
+			"9F0DFB44D1EB49F993F4E795" =
+				{
+					"isa" = "PBXFileReference";
+					"name" = "Main.storyboard";
+					"lastKnownFileType" = "file.storyboard";
+					"sourceTree" = "<group>";
+					"path" = "Base.lproj/Main.storyboard";
+				};
+			"2381CA95CB2841B3B429B258" =
+				{
+					"isa" = "PBXGroup";
+					"children" =
+						("278F8D260762447DB9DF65FC", "89112A1C59F245859CAF5AC1");
+					"name" = "Resources";
+					"sourceTree" = "<absolute>";
+					"path" = "/Users/sliubetskyi/projects/roboVM/events/ios/resources";
+				};
+			"278F8D260762447DB9DF65FC" =
+				{
+					"isa" = "PBXFileReference";
+					"name" = "Images.xcassets";
+					"lastKnownFileType" = "folder.assetcatalog";
+					"sourceTree" = "<group>";
+					"path" = "Images.xcassets";
+				};
+			"89112A1C59F245859CAF5AC1" =
+				{
+					"isa" = "PBXVariantGroup";
+					"children" =
+						("9F0DFB44D1EB49F993F4E795");
+					"name" = "Main.storyboard";
+					"sourceTree" = "<group>";
+				};
+			"237D52A5DE5F441492D286CC" =
+				{
+					"isa" = "PBXFileReference";
+					"name" = "Info.plist";
+					"explicitFileType" = "text.plist.info";
+					"sourceTree" = "<group>";
+					"path" = "Info.plist.xml";
+				};
+			"30D478946AF04D03A668256A" =
+				{
+					"isa" = "PBXGroup";
+					"children" =
+						("237D52A5DE5F441492D286CC");
+					"name" = "Supporting Files";
+					"sourceTree" = "<absolute>";
+					"path" = "/Users/sliubetskyi/projects/roboVM/events/ios";
+				};
+		};
+	"rootObject" = "100000000000000000000001";
+}

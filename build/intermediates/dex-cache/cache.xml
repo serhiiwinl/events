@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/sliubetskyi/projects/roboVM/events/core/build/libs/core.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="79594686e611e543a76b1a1aad58d8296234d045">
+        <dex dex="/Users/sliubetskyi/projects/roboVM/events/android/build/intermediates/pre-dexed/debug/core_8830ca8a8f3c45344c0e05fe9b45a84c8923962b.jar" />
+    </item>
+
+</items>
