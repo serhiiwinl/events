@@ -7,7 +7,7 @@ import com.mycompany.events.experimental.Context;
  */
 public class AppUsageTracker implements ITracker {
 
-    private static volatile  AppUsageTracker instance;
+    private static volatile AppUsageTracker instance;
 
     protected AppUsageTracker() {
     }
@@ -24,16 +24,16 @@ public class AppUsageTracker implements ITracker {
     }
 
     @Override
-    public void startTracking(Object data) {
+    public void init(Object data) {
         for (ITracker tracker : Context.getInstance().getTrackers()) {
-            tracker.startTracking(data);
+            tracker.init(data);
         }
     }
 
     @Override
-    public void stopTracking(Object data) {
+    public void stop(Object data) {
         for (ITracker tracker : Context.getInstance().getTrackers()) {
-            tracker.stopTracking(data);
+            tracker.stop(data);
         }
     }
 }

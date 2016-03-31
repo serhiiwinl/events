@@ -49,35 +49,58 @@ public class Context implements IEventDispatcher {
         return this.dispatchers;
     }
 
-
     @Override
-    public void addEventHandler(String eventType, IEventHandler handler) {
+    public <T> void dispatchEvent(Event<T> event, Class<T> dataType) {
         for (IEventDispatcher dispatcher : getDispatchers()) {
-            dispatcher.addEventHandler(eventType,handler);
-        }
-    }
-
-    @Override
-    public void removeEventHandler(String eventType) {
-        for (IEventDispatcher dispatcher : getDispatchers()) {
-            dispatcher.removeEventHandler(eventType);
-        }
-    }
-
-    @Override
-    public void dispatchEvent(Event event) {
-        for (IEventDispatcher dispatcher : getDispatchers()) {
-            if (dispatcher.hasEventHandler(event.name)) {
-                dispatcher.dispatchEvent(event);
+            if (dispatcher.hasEventHandler(event.getName())) {
+                dispatcher.dispatchEvent(event, dataType);
             }
         }
     }
 
     @Override
-    public boolean hasEventHandler(String eventType) {
+    public <T> void addEventHandler(String eventType, Class<T> dataType, IEventHandler<Event<T>> handler) {
         for (IEventDispatcher dispatcher : getDispatchers()) {
-            return dispatcher.hasEventHandler(eventType);
+            dispatcher.addEventHandler(eventType, dataType, handler);
+        }
+    }
+
+    @Override
+    public void addEventHandler(String eventType, IEventHandler handler) {
+        for (IEventDispatcher dispatcher : getDispatchers()) {
+            dispatcher.addEventHandler(eventType, handler);
+        }
+    }
+
+    @Override
+    public void removeEventHandler(String eventType, IEventHandler handler) {
+        for (IEventDispatcher dispatcher : getDispatchers()) {
+            dispatcher.removeEventHandler(eventType, handler);
+        }
+    }
+
+    @Override
+    public <T> void removeEventHandler(String eventType, Class<T> dataType, IEventHandler<Event<T>> handler) {
+        for (IEventDispatcher dispatcher : getDispatchers()) {
+            dispatcher.removeEventHandler(eventType, dataType, handler);
+        }
+    }
+
+    @Override
+    public boolean hasEventHandler(String eventType) {
+        return this.hasEventHandler(eventType, null);
+    }
+
+    @Override
+    public boolean hasEventHandler(String eventType, Class<? extends Object> dataType) {
+        for (IEventDispatcher dispatcher : getDispatchers()) {
+            return dispatcher.hasEventHandler(eventType, dataType);
         }
         return false;
+    }
+
+    @Override
+    public <T> void dispatchEvent(Event<T> event) {
+        this.dispatchEvent(event, null);
     }
 }

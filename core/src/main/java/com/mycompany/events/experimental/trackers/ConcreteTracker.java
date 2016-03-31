@@ -1,8 +1,7 @@
 package com.mycompany.events.experimental.trackers;
 
-import com.mycompany.events.experimental.events.IEventHandler;
-import com.mycompany.events.experimental.events.DataEvent;
 import com.mycompany.events.experimental.events.Event;
+import com.mycompany.events.experimental.events.IEventHandler;
 
 
 /**
@@ -11,47 +10,53 @@ import com.mycompany.events.experimental.events.Event;
 public class ConcreteTracker extends BaseTrackerEventsDispatcher {
 
     @Override
-    public void init(Object data) {
-        System.out.println("ConcreteTracker init");
+    public void initTracker(Object data) {
+        System.out.println("ConcreteTracker initTracker");
     }
 
     @Override
     public void subscribeForEvents() {
-        addEventHandler(DataEvent.LOGIN_WITH_DATA, new IEventHandler<DataEvent>() {
-            @Override
-            public void handle(DataEvent event) {
-                System.out.println(event.name + " for ConcreteTracker");
-                System.out.println("data : " + event.data);
-            }
-        });
-
-        addEventHandler(DataEvent.UNREGISTER_WITH_DATA, new IEventHandler<DataEvent>() {
-            @Override
-            public void handle(DataEvent event) {
-                System.out.println(event.name + " for ConcreteTracker");
-                System.out.println("data : " + event.data);
-            }
-        });
-
-        addEventHandler(Event.UNREGISTER, new IEventHandler() {
+        addEventHandler(Event.LOGIN_WITH_DATA, new IEventHandler() {
             @Override
             public void handle(Event event) {
-                System.out.println(event.name + " for ConcreteTracker");
+                System.out.println(event.getName() + " for ConcreteTracker");
+            }
+        });
+
+        addEventHandler(Event.LOGIN_WITH_DATA, Integer.class, new IEventHandler<Event<Integer>>() {
+            @Override
+            public void handle(Event<Integer> event) {
+                System.out.println(event.getName() + " for ConcreteTracker");
+            }
+        });
+
+        addEventHandler(Event.UNREGISTER_WITH_DATA, String.class, new IEventHandler<Event<String>>() {
+            @Override
+            public void handle(Event event) {
+                System.out.println(event.getName() + " for ConcreteTracker");
+                System.out.println("data : " + event.getData());
+            }
+        });
+
+        addEventHandler(Event.UNREGISTER, new IEventHandler<Event>() {
+            @Override
+            public void handle(Event event) {
+                System.out.println(event.getName() + " for ConcreteTracker");
             }
         });
 
         addEventHandler(Event.APP_START, new IEventHandler() {
             @Override
             public void handle(Event event) {
-                System.out.println(event.name + " for ConcreteTracker");
+                System.out.println(event.getName() + " for ConcreteTracker");
             }
         });
     }
 
     @Override
-    public void stopTracking(Object data) {
+    public void stop(Object data) {
         removeEventHandler(Event.UNREGISTER);
         removeEventHandler(Event.APP_START);
-        removeEventHandler(DataEvent.LOGIN_WITH_DATA);
+        removeEventHandler(Event.LOGIN_WITH_DATA);
     }
 }

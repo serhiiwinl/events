@@ -1,6 +1,5 @@
 package com.mycompany.events.experimental.trackers;
 
-import com.mycompany.events.experimental.events.DataEvent;
 import com.mycompany.events.experimental.events.IEventHandler;
 import com.mycompany.events.experimental.events.Event;
 
@@ -11,21 +10,21 @@ import com.mycompany.events.experimental.events.Event;
 public class ConcreteTracker2 extends BaseTrackerEventsDispatcher implements IEventHandler {
     @Override
     public void subscribeForEvents() {
-        addEventHandler(Event.LOGIN, this);
+        addEventHandler(Event.LOGIN, null, this);
     }
 
     @Override
-    public void init(Object data) {
-        System.out.println("ConcreteTracker2 init");
+    public void initTracker(Object data) {
+        System.out.println("ConcreteTracker2 initTracker");
     }
 
     @Override
     public void handle(Event event) {
-        System.out.println(event.name + " for ConcreteTracker2");
+        System.out.println(event.getName() + " for ConcreteTracker2");
     }
 
     @Override
-    public void stopTracking(Object data) {
+    public void stop(Object data) {
         removeEventHandler(Event.LOGIN);
     }
 }
